@@ -41,6 +41,6 @@ function pageLoad() {
 }
 
 // Load JSON file into DB
-app.get('/', function(req,res) {
+$.get('/', function(req,res) {
   res.sendFile('./data/books.json')
 })
