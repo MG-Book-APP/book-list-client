@@ -38,5 +38,9 @@ function pageLoad() {
         $('results').append(content);
       })
     });
-
 }
+
+// Load JSON file into DB
+app.get('/', function(req,res) {
+  res.sendFile('./data/books.json')
+})
