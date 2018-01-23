@@ -1,5 +1,16 @@
 body {
   max-width: 600px;
   margin: 0 auto;
-  border: 1px #000000 solid;
+}
+header {
+  background: #333;
+  height: 15vw;
+  color: #fff;
+}
+main{
+  background-color: #D8D8D8;
+}
+footer {
+  background: #888;
+  height: 20vw;
 }
