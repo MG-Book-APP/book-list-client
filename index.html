@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>My Book App</title>
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/icons.css">
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/modules.css">    
     </head>
     <body>
-        <p>Just to see if this book will come up</p>
+        <p>books app</p>
        <main>
-           <form id="basic-form">
-               <input type="text" placeholder="Title of Book">
-               <input type="text" placeholder="Author">
-               <input type="text" placeholder="Year">
+           <form id="book-form">
+               <input type="text" placeholder="Book Title">
+               <input type="text" placeholder="Book Author">
+               <input type="text" placeholder="URL">
                <button type="Submit">Add Book</button>
            </form>
            <section id="results"></section>
        </main>
        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+       <script src="scripts/models/book.js"></script>
+       <script src="scripts/views/book-view.js"></script>
+       <script src="scripts/views/error-view.js"></script>
        <script src="app.js"></script>
+       <script>
+         // insert init script here
+       </script>
     </body>
 </html>
