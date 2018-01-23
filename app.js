@@ -4,21 +4,39 @@ pageLoad();
 
 var __API_URL__ = 'https://mg-book-app.herokuapp.com';
 
-$('#basic-form').on('submit', function(e){
-    e.preventDefault();
+$('#book-form').on('submit', function(e){
+  e.preventDefault();
 
-    $.post(`${__API_URL__}/db/person`, data)
+  let data = {
+    // capture data from form, create data object
+    title: e.target.title.value,
+    author: e.target.author.value,
+    url: e.target.url.value,
+  }
+
+  // AJAX call to /books?
+  $.post(`${__API_URL__}/db/books`, data)
     .then(function () {
-        pageLoad();
+      pageLoad();
     })
     .catch(function() {
-        pageLoad();
-    });
+      pageLoad();
+    })
 });
 
 function pageLoad() {
-    $.get(`${__API_URL__}/db/person`)
+  $.get(`${__API_URL__}/db/books`)
     .then(function(data) {
-       $('#results').empty();
+      $('#results').empty();
+
+      data.rows.forEach(function(book) {
+        let content = `
+          <h2>title: ${book.title}</h2>
+          <p>author: ${book.author}</p>
+          <p>URL: ${book.url}</p>
+          `
+        $('results').append(content);
+      })
     });
+
 }
