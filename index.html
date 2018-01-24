@@ -8,12 +8,21 @@
         <link rel="stylesheet" href="styles/base.css">
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">    
+        <script id="error-template" type="text/x-handlebars-template">
+            <p id="error-message">{{err}}</p>
+        </script>
     </head>
     <body>
         <header>
             <p>books app</p>
         </header>
        <main>
+           <section class="container">
+               <!-- List of all available books by author and title.
+               Include on the page the count of books that are in the DB.
+               Create an About View for displaying content about you and your application. -->               
+           </section>
+           <section class="error-view"></section>
            <form id="book-form">
                <input type="text" id="author" placeholder="Book Author">
                <input type="text" id="title" placeholder="Book Title">
@@ -26,6 +35,7 @@
        </main>
        <footer></footer>
        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
        <script src="scripts/models/book.js"></script>
        <script src="scripts/views/book-view.js"></script>
        <script src="scripts/views/error-view.js"></script>

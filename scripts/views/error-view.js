@@ -12,9 +12,9 @@
     let template = Handlebars.compile($('#error-template').html());
 
     // Renders the err argument into the template, and appends it to an element with an id of error-message.
-    `$('#error-message').append(${err})`
+    $('#error-message').append(this.err);
 
-    template(this);
+    $('.error-view').html(template);
 
     errorCallback(err);
   }
