@@ -45,3 +45,9 @@ function pageLoad() {
       })
     });
 }
+
+// Load JSON file into DB
+//$.get('/', function(req,res) {
+//  res.sendFile('./data/books.json')
+//})
+}
