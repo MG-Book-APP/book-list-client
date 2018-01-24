@@ -30,7 +30,7 @@ $.get('/', function(req,res) {
 })
 
 function pageLoad() {
-  $.get(`${__API_URL__}/api/v1/books`)
+  $.get(`https://mg-book-app.herokuapp.com/api/v1/books`)
     .then(function(data) {
       $('#results').empty();
       console.log('database data',data);
