@@ -16,6 +16,12 @@ $('#book-form').on('submit', function(e) {
     description: e.target.description.value,
   }
 
+  $.get('https://mg-book-app.herokuapp.com/api/v1/books')
+      .then(function(data) {
+        $('.container').sort();
+        console.log(data);
+      })
+
   // do AJAX call here if it's confirmed that post request worked
   $.post(`${__API_URL__}/api/v1/books`, data)
     .then(function() {
