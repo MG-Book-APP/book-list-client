@@ -15,7 +15,6 @@ var __API_URL__  = 'https://mg-book-app.herokuapp.com';
 
   // load All
   Book.loadAll = rawData => {
-    console.log(rawData);
     rawData.forEach(bookObject => Book.all.push(new Book(bookObject)))
   }
 
