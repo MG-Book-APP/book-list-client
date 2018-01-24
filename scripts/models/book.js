@@ -1,6 +1,6 @@
 'use strict';
 
-var __API_URL__ = 'localhost:3000';
+var __API_URL__  = 'https://mg-book-app.herokuapp.com';
 
 (function(module) {
   function Book(rawDataObj) {
