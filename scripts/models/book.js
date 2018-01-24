@@ -1,7 +1,8 @@
-var Book = {
-    Object.key(
-    Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
-}
+'use strict';
+
+function Book(rawBookData) {
+    Object.keys(rawBookData).forEach(key => this[key] = rawBookData[key])
+};
 
 loadDB();
 
