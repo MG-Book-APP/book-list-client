@@ -24,11 +24,18 @@ $('#book-form').on('submit', function(e){
     })
 });
 
+// Load JSON file into DB
+$.get('/', function(req,res) {
+  res.sendFile('./data/books.json')
+})
+
 function pageLoad() {
-  $.get(`${__API_URL__}/db/books`)
+  $.get(`${__API_URL__}/api/v1/books`)
     .then(function(data) {
       $('#results').empty();
-
+      console.log('database data',data);
+      
+      // need to add specific results rendering below
       data.rows.forEach(function(book) {
         let content = `
           <h2>title: ${book.title}</h2>
@@ -39,8 +46,3 @@ function pageLoad() {
       })
     });
 }
-
-// Load JSON file into DB
-$.get('/', function(req,res) {
-  res.sendFile('./data/books.json')
-})
