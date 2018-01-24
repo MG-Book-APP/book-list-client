@@ -27,25 +27,21 @@ $('#book-form').on('submit', function(e) {
   this.reset();
 });
 
-// // Load JSON file into DB
-// $.get('/', function(req,res) {
-//   res.sendFile('./data/books.json')
-// })
-
 function pageLoad() {
-  $.get(`https://mg-book-app.herokuapp.com/api/v1/books`)
+  // i know this is hacky and not secure, but it works for now...
+  $.get('https://mg-book-app.herokuapp.com/api/v1/books')
     .then(function(data) {
       $('#results').empty();
-      console.log('database data',data);
       
-      // need to add specific results rendering below
       data.rows.forEach(function(book) {
         let content = `
-          <h2>title: ${book.title}</h2>
           <p>author: ${book.author}</p>
-          <p>URL: ${book.url}</p>
+          <h2>title: ${book.title}</h2>
+          <p>ISBN: ${book.isbn}</p>
+          <p>URL: ${book.image_url}</p>
+          <p>Description: ${book.description}</p>
           `
-        $('results').append(content);
+        $('#results').append(content);
       })
     });
 }
