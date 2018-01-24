@@ -1,27 +1,46 @@
 'use strict';
 
-function Book(rawBookData) {
-    Object.keys(rawBookData).forEach(key => this[key] = rawBookData[key])
-};
+var __API_URL__ = 'localhost:3000';
 
-loadDB();
+(function(module) {
+  function Book(rawDataObj) {
+    this.author = rawDataObj.author;
+    this.title = rawDataObj.title;
+    this.isbn = rawDataObj.isbn;
+    this.image_url = rawDataObj.image_url;
+    this.description = rawDataObj.description;
+  }
 
-function loadBooks() {
- fs.readFile('../book-list-client/data/books.json', function(err, fd) {
-   JSON.parse(fd.toString()).forEach(function(ele) {
-     client.query(
-       'INSERT INTO books(title, author, isbn, image_url, description) VALUES($1, $2, $3, $4, $5) ON CONFLICT DO NOTHING',
-       [ele.title, ele.author, ele.isbn, ele.image_url, ele.description]
-     )
-   })
- })
-}
+  Book.all = [];
 
-function loadDB() {
- client.query(`
-   CREATE TABLE IF NOT EXISTS
-   books(id SERIAL PRIMARY KEY, title VARCHAR(255), author VARCHAR(255), isbn VARCHAR(255), image_url VARCHAR(255), description TEXT NOT NULL);
-   `)
+  // load All
+  Book.loadAll = rawData => {
+    console.log(rawData);
+    rawData.forEach(bookObject => Book.all.push(new Book(bookObject)))
+  }
 
-   .then(loadBooks());
-}
+  // fetch from JSON
+  Book.fetchAll = () => {
+    $.getJSON('./data/books.json')
+      .then(rawData => {
+        console.log(rawData);
+        Book.loadAll(rawData)
+      })
+  }
+
+  // insert record
+  Book.prototype.insertRecord = function(callback) {
+    $.post(`${__API_URL__}/api/v1/books`,
+      { author: this.author,
+        title: this.title,
+        isbn: this.isbn,
+        image_url: this.image_url,
+        description: this.description,
+      }
+        .then(console.log)
+        .then(callback)
+    )
+  }
+
+  module.Book = Book;
+})(window)
