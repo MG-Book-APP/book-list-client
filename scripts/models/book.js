@@ -42,5 +42,6 @@ var __API_URL__  = 'https://mg-book-app.herokuapp.com';
     )
   }
 
+  Book.fetchAll();
   module.Book = Book;
 })(window)
