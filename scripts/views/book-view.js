@@ -1,5 +1,8 @@
 'use strict';
 
+var source   = document.getElementById("container").innerHTML;
+var template = Handlebars.compile(source);
+
 Handlebars.registerHelper('list', function(items, options) {
     var out = "<ul>";
 
@@ -8,4 +11,4 @@ Handlebars.registerHelper('list', function(items, options) {
     }
 
     return out + "</ul>";
-})
+});
