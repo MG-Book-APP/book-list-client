@@ -28,7 +28,7 @@
             <p>author: ${book.author}</p>
             <h2>title: ${book.title}</h2>
             <p>ISBN: ${book.isbn}</p>
-            <p>URL: ${book.image_url}</p>
+            <img src="${book.image_url}">
             <p>Description: ${book.description}</p>
             `
           $('#results').append(content);
@@ -37,16 +37,6 @@
         errorView.initErrorPage(err);
       })
   };
-
-  // Book.prototype.toHtml = function() {
-  //   var template = Handlebars.compile($('#container').text());
-    
-  //   this.author = marked(this.author);
-  //   this.tilte = marked(this.title);
-  //   console.log(template)
-  
-  //   return template(this);
-  // };
 
   // insert record
   Book.prototype.insertRecord = function(callback) {
