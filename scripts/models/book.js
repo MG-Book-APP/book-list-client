@@ -1,8 +1,8 @@
 'use strict';
 
-var __API_URL__  = 'https://mg-book-app.herokuapp.com';
-
 (function(module) {
+  var __API_URL__  = 'https://mg-book-app.herokuapp.com';
+
   function Book(rawDataObj) {
     this.author = rawDataObj.author;
     this.title = rawDataObj.title;
@@ -19,10 +19,10 @@ var __API_URL__  = 'https://mg-book-app.herokuapp.com';
   }
 
   // fetch from JSON
+  // in the future this should be a get request to the server/db
   Book.fetchAll = () => {
     $.getJSON('./data/books.json')
       .then(rawData => {
-        console.log(rawData);
         Book.loadAll(rawData)
       })
   }
@@ -35,10 +35,8 @@ var __API_URL__  = 'https://mg-book-app.herokuapp.com';
         isbn: this.isbn,
         image_url: this.image_url,
         description: this.description,
-      }
-        .then(console.log)
-        .then(callback)
-    )
+      })
+      .then(callback)
   }
 
   Book.fetchAll();
