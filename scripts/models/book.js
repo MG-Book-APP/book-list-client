@@ -20,7 +20,7 @@
   }
 
   Book.fetchAll = () => {
-    $.get('https://mg-book-app.herokuapp.com/api/v2/books')
+    $.get('https://mg-book-app.herokuapp.com/api/v1/books')
       .then(function(data) {
         $('#results').empty();
         data.rows.forEach(function(book) {
