@@ -8,8 +8,6 @@
     $('.error-view').show();
     $('#error-message').empty();
 
-    // compiles handlebars template with an id of error template
-
     var message = { err : `${err.status} ${err.statusText}`}
     console.log(message);
     var templateScript = $('#error-template').html();
