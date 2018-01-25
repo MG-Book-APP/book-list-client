@@ -1,4 +1,10 @@
 'use strict';
+
+/* TO DO:
+- Sort books by author or title
+- render 3 books (vs 9)
+- Create a new endpoint at GET /api/v1/books which will retrieve an array of book objects from the database, limited to only the book_id, title, author, and image_url.
+*/
 var __API_URL__  = 'https://mg-book-app.herokuapp.com';
 // var app = app || {};
 
@@ -10,7 +16,7 @@ var __API_URL__  = 'https://mg-book-app.herokuapp.com';
   }
   // load All
   Book.loadAll = rawData => {
-    rawData.rows.sort((a,b) => (b.title) - (a.title))
+    rawData.rows.sort((a,b) => (a.author) - (b.author))
 
     Book.all = rawData.rows.map(rows => new Book(rows));
     console.log('Books instantiated:',Book.all)
@@ -29,6 +35,19 @@ var __API_URL__  = 'https://mg-book-app.herokuapp.com';
       })
   }
 
+  //get request to /api/v1/books/:id
+  Book.fetchOne = callback => {
+    $.ajax('https://mg-book-app.herokuapp.com/api/v1/books/:id')
+    // need to specify id somehow - params.id?
+      .then(data => {
+      // pass single book through
+      })
+      .then(callback)
+      .catch(err => {
+        window.errorView.initErrorPage(err);
+      })
+  }
+
   // render
   Book.prototype.toHtml = function() {
     // console.log('this', this);
@@ -39,53 +58,29 @@ var __API_URL__  = 'https://mg-book-app.herokuapp.com';
         <h2>Title: ${book.author}</h2>
         <img src="${book.image_url}">
         `
-        // <p>ISBN: ${book.isbn}</p>
-        // <p>Description: ${book.description}</p>
+      // <p>ISBN: ${book.isbn}</p>
+      // <p>Description: ${book.description}</p>
       $('.container').append(content);
     })
   }
 
-  // insert record
-  Book.prototype.insertRecord = function(callback) {
+  // add record
+  Book.addRecord = function(data) {
     $.post(`${__API_URL__}/api/v1/books`,
-      { author: this.author,
-        title: this.title,
-        isbn: this.isbn,
-        image_url: this.image_url,
-        description: this.description,
+      { author: data.author,
+        title: data.title,
+        isbn: data.isbn,
+        image_url: data.image_url,
+        description: data.description,
       })
-      .then(callback)
-  }
-
-  // Form - add book
-  $('#book-form').on('submit', function(e) {
-    e.preventDefault();
-  
-    let data = {
-      // capture data from form, create data object
-      author: e.target.author.value,
-      title: e.target.title.value,
-      isbn: e.target.isbn.value,
-      image_url: e.target.image_url.value,
-      description: e.target.description.value,
-    }
-  
-    $.get('https://mg-book-app.herokuapp.com/api/v1/books')
-      .then(function(data) {
-        $('.container').sort();
-        console.log(data);
-      })
-  
-    // do AJAX call here if it's confirmed that post request worked
-    $.post(`${__API_URL__}/api/v1/books`, data)
       .then(function() {
         pageLoad();
       })
       .catch(function() {
         pageLoad();
       })
-    this.reset();
-  })
+  }
+
 
   module.Book = Book
 })(window)
