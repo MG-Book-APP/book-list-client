@@ -1,42 +1,49 @@
 'use strict';
+var __API_URL__  = 'https://mg-book-app.herokuapp.com';
+// var app = app || {};
 
 (function(module) {
-  var __API_URL__  = 'https://mg-book-app.herokuapp.com';
+  Book.all = []
 
   function Book(rawDataObj) {
-    this.author = rawDataObj.author;
-    this.title = rawDataObj.title;
-    this.isbn = rawDataObj.isbn;
-    this.image_url = rawDataObj.image_url;
-    this.description = rawDataObj.description;
+    Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
   }
-
-  Book.all = [];
-
   // load All
   Book.loadAll = rawData => {
-    // *TO DO*: SORT ROWS BY TITLE 
-    rawData.forEach(bookObject => Book.all.push(new Book(bookObject)))
+    rawData.rows.sort((a,b) => (b.title) - (a.title))
+
+    Book.all = rawData.rows.map(rows => new Book(rows));
+    console.log('Books instantiated:',Book.all)
+    console.log(Book.all.length)
   }
 
-  Book.fetchAll = () => {
-    $.get('https://mg-book-app.herokuapp.com/api/v1/books')
-      .then(function(data) {
-        $('#results').empty();
-        data.rows.forEach(function(book) {
-          let content = `
-            <p>author: ${book.author}</p>
-            <h2>title: ${book.title}</h2>
-            <p>ISBN: ${book.isbn}</p>
-            <img src="${book.image_url}">
-            <p>Description: ${book.description}</p>
-            `
-          $('#results').append(content);
-        })
-      }, err => {
-        errorView.initErrorPage(err);
+  // fetch All
+  Book.fetchAll = callback => {
+    $.ajax('https://mg-book-app.herokuapp.com/api/v1/books')
+      .then(results => {
+        Book.loadAll(results);
       })
-  };
+      .then(callback)
+      .catch(err => {
+        window.errorView.initErrorPage(err);
+      })
+  }
+
+  // render
+  Book.prototype.toHtml = function() {
+    // console.log('this', this);
+    // $('#container').empty();
+    Book.all.forEach(function(book) {
+      let content = `
+        <p>Author: ${book.title}</p>
+        <h2>Title: ${book.author}</h2>
+        <img src="${book.image_url}">
+        `
+        // <p>ISBN: ${book.isbn}</p>
+        // <p>Description: ${book.description}</p>
+      $('.container').append(content);
+    })
+  }
 
   // insert record
   Book.prototype.insertRecord = function(callback) {
@@ -78,8 +85,7 @@
         pageLoad();
       })
     this.reset();
-  });
+  })
 
-  Book.fetchAll();
-  module.Book = Book;
+  module.Book = Book
 })(window)
