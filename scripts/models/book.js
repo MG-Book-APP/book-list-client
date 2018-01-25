@@ -27,6 +27,16 @@ var __API_URL__  = 'https://mg-book-app.herokuapp.com';
       })
   }
 
+  // Book.prototype.toHtml = function() {
+  //   var template = Handlebars.compile($('#container').text());
+    
+  //   this.author = marked(this.author);
+  //   this.tilte = marked(this.title);
+  //   console.log(template)
+  
+  //   return template(this);
+  // };
+
   // insert record
   Book.prototype.insertRecord = function(callback) {
     $.post(`${__API_URL__}/api/v1/books`,
