@@ -1,0 +1,9 @@
+.icon-menu {
+    display: block;
+    float: right;
+    margin-right: 10px;
+}
+
+nav {
+    display: none;
+}

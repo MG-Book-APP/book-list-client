@@ -1,10 +1,10 @@
 body {
-  max-width: 600px;
+  max-width: 60vw;
   margin: 0 auto;
 }
 header {
   background: #333;
-  height: 15vw;
+  height: 5vw;
   color: #fff;
 }
 main{
@@ -12,5 +12,5 @@ main{
 }
 footer {
   background: #888;
-  height: 20vw;
+  height: 30vw;
 }

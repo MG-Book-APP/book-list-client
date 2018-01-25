@@ -5,3 +5,45 @@
 .error-view {
   display: none;
 }
+
+#book-form {
+  display: inline-block;
+    /* float: center; */
+    width: 250vw;
+    text-align: center;
+    /* margin: auto; */
+    height: 50vw;
+}
+
+#author, #title, #isbn, #image_url {
+  margin-bottom: 1vw;
+  margin-top: 1vw;
+  height: 5vw;
+}
+
+#description {
+  height: 15vw;
+}
+
+#results {
+  display: none;
+}
+
+.form-align {
+  width: 40vw;
+  display: block;
+  position: relative;
+  margin-left: 8vw;
+}
+
+#align-submit {
+  /* display: block; */
+  float: right;
+  border-radius: 30vw;
+  font-family: Arial;
+  color: black;
+  font-size: 2vw;
+  padding: 2vw 4vw 2vw 4vw;
+  margin-right: 2vw;
+  margin-top: 2vw;
+}

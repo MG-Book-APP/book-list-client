@@ -35,6 +35,7 @@ var __API_URL__  = 'https://mg-book-app.herokuapp.com';
       })
   }
 
+
   //get request to /api/v1/books/:id
   Book.fetchOne = callback => {
     $.ajax('https://mg-book-app.herokuapp.com/api/v1/books/:id')
@@ -66,6 +67,7 @@ var __API_URL__  = 'https://mg-book-app.herokuapp.com';
 
   // add record
   Book.addRecord = function(data) {
+
     $.post(`${__API_URL__}/api/v1/books`,
       { author: data.author,
         title: data.title,
