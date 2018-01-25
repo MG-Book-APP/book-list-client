@@ -11,18 +11,21 @@
         <script id="error-template" type="text/x-handlebars-template">
             <p id="error-message">{{err}}</p>
         </script>
+        <script id="container-template" type="text/x-handlebars-template">
+            {{#list Book}}{{this.author}} - "{{this.title}}"
+        </script>
     </head>
     <body>
         <header>
             <p>books app</p>
         </header>
        <main>
-           <section class="container">
-               <!-- List of all available books by author and title.
-               Include on the page the count of books that are in the DB.
-               Create an About View for displaying content about you and your application. -->
-               {{#list this.author}} - "{{this.title}}{{/list}}""
-           </section>
+            <section class="container">
+                <!-- List of all available books by author and title.
+                Include on the page the count of books that are in the DB.
+                Create an About View for displaying content about you and your application. -->
+                
+            </section>
            <section class="error-view"></section>
            <form id="book-form">
                <input type="text" id="author" placeholder="Book Author">
