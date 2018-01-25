@@ -8,13 +8,11 @@
     $('.error-view').show();
     $('#error-message').empty();
 
-    // compiles handlebars template with an id of error template
-    let template = Handlebars.compile($('#error-template').html());
-
-    // Renders the err argument into the template, and appends it to an element with an id of error-message.
-    $('#error-message').append(this.err);
-
-    $('.error-view').html(template);
+    var message = { err : `${err.status} ${err.statusText}`}
+    console.log(message);
+    var templateScript = $('#error-template').html();
+    var template = Handlebars.compile(templateScript);
+    $('.error-view').append(template(message));
 
     errorCallback(err);
   }
