@@ -11,13 +11,19 @@
         <script id="error-template" type="text/x-handlebars-template">
             <p id="error-message">{{err}}</p>
         </script>
-        <script id="container-template" type="text/x-handlebars-template">
+        <!-- <script id="container-template" type="text/x-handlebars-template">
             {{#list Book}}{{this.author}} - "{{this.title}}"
-        </script>
+        </script> -->
     </head>
     <body>
         <header>
+            <section>
+                <nav id="icon-menu" >
+                    <span class="tab">View All Books</span>
+                    <span class="tab">Add A New Book</span>
+                </nav>
             <p>books app</p>
+            </section>
         </header>
        <main>
             <section class="container">
@@ -28,13 +34,17 @@
             </section>
            <section class="error-view"></section>
            <form id="book-form">
-               <input type="text" id="author" placeholder="Book Author">
-               <input type="text" id="title" placeholder="Book Title">
-               <input type="text" id="isbn" placeholder="ISBN">
-               <input type="text" id="image_url" placeholder="Image URL">
-               <input type="text" id="description" placeholder="Description">
-               <button type="submit">Add Book</button>
+               <input type="text" class="form-align" id="author" placeholder="Book Author">
+               <input type="text" class="form-align" id="title" placeholder="Book Title">
+               <input type="text" class="form-align" id="isbn" placeholder="ISBN">
+               <input type="text" class="form-align" id="image_url" placeholder="Image URL">
+               <textarea name="textarea" id="description" class="form-align" placeholder="Description" rows="30" cols="20"></textarea>
+              
            </form>
+           <div id=".btn">
+                <button id="align-submit" type="submit">Add Book</button>
+                <button id="align-submit" type="submit">Update</button>
+            </div> 
            <section id="results"></section>
        </main>
        <footer></footer>
@@ -44,7 +54,7 @@
        <script src="scripts/models/book.js"></script>
        <script src="scripts/views/book-view.js"></script>
        <script>
-         // insert init script here?
-       </script>
+            Book.fetchAll(bookView.initIndexPage)
+        </script>
     </body>
 </html>
