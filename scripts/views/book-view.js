@@ -3,18 +3,11 @@
 (function(module) {
   var bookView = {};
 
-  bookView.initIndexPage = () => {
-    $('.container').add('p').text('Total books: ' + Book.all.length)
+  bookView.initIndexPage = (ctx, next) => {
+    $('.all-books').add('p').text('Total books: ' + Book.all.length)
     Book.all.forEach(a => a.toHtml())
   }
 
-  // FORM PAGE
-  // bookView.initFormPage = () => {
-  //   //enter here
-  // }
-
-  // FORM SUBMIT
-  // bookView
   $('#book-form').on('submit', function(e) {
     e.preventDefault();
   
