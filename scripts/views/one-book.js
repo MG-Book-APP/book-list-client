@@ -1,27 +1,18 @@
 'use strict';
+var __API_URL__  = 'http://localhost:3000';
 
 (function(module){
   let singleBook = {};
 
-  console.log('hello')
+  singleBook.initBookPage = (ctx, next) => {
+    Book.single.forEach(a => a.singleToHtml())
+  }
 
-  // on click of button
-  $('.all-books').on('click', 'button', function(e) {
-    e.preventDefault();
-    let bookId = $(this).attr('data');
-    console.log($(this).attr('data'));
-    console.log(e.target.attr.data);
-
-    $.get(`https://mg-book-app.herokuapp.com/api/v1/books/${bookId}`)
-      .then(data => {
-       console.log(data);
-      })
-      .then(callback)
-      .catch(err => {
-        window.errorView.initErrorPage(err);
-      })
-  })
-
+  // $('.all-books').on('click', 'a', function(e) {
+  //   // e.preventDefault();
+  // //   // let bookId = $(this).attr('data');
+  // //   // console.log('book id:',$(this).attr('data'))
+  // })
 
   module.singleBook = singleBook;
 
