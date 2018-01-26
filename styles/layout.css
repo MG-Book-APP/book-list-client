@@ -1,10 +1,8 @@
-/* form {
-  display: none;
-} */
 
+/* 
 .error-view {
   display: none;
-}
+} */
 
 #book-form {
   display: inline-block;
@@ -35,9 +33,10 @@
   position: relative;
   margin-left: 8vw;
 }
-
-#align-submit {
-  /* display: block; */
+.btn {
+  height: 50px;
+}
+/* #align-submit {
   float: right;
   border-radius: 30vw;
   font-family: Arial;
@@ -46,4 +45,4 @@
   padding: 2vw 4vw 2vw 4vw;
   margin-right: 2vw;
   margin-top: 2vw;
-}
+} */
