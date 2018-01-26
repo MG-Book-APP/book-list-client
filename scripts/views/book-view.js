@@ -1,7 +1,6 @@
 'use strict';
 
-
-(function(module, Book) {
+(function(module) {
   var bookView = {};
 
   bookView.initIndexPage = () => {
@@ -10,12 +9,12 @@
   }
 
   // FORM PAGE
-  bookView.initFormPage = () => {
-    //enter here
-  }
+  // bookView.initFormPage = () => {
+  //   //enter here
+  // }
 
   // FORM SUBMIT
-  bookView
+  // bookView
   $('#book-form').on('submit', function(e) {
     e.preventDefault();
   
@@ -37,10 +36,10 @@
     //     pageLoad();
     //   })
     Book.addRecord(data);
-  
+    
     this.reset();
   })
 
   module.bookView = bookView;
 
-})(window, window.Book)
+})(window)
