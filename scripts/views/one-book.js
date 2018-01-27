@@ -4,8 +4,10 @@ var __API_URL__  = 'http://localhost:3000';
 (function(module){
   let singleBook = {};
 
-  singleBook.initBookPage = (ctx, next) => {
-    Book.single.forEach(a => a.singleToHtml())
+  singleBook.init = (ctx, next) => {
+    // $('.all-books').empty();
+    // window.Book.all.map(book => $('.single-book').append(book.toHtml()));
+    // next();
   }
 
   // $('.all-books').on('click', 'a', function(e) {
