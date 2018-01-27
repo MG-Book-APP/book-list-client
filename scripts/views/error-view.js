@@ -4,9 +4,10 @@
   const errorView = {};
 
   errorView.initErrorPage = function(err) {
-    $('.container').hide();
+    $('.all-books').hide();
+    $('.single-book').hide();
+    $('.book-form').hide();
     $('.error-view').show();
-    $('#error-message').empty();
 
     var message = { err : `${err.status} ${err.statusText}`}
     console.log(message);
