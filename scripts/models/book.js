@@ -15,6 +15,7 @@ var __API_URL__  = 'http://localhost:3000';
   }
 
   Book.renderAllBooks = (ctx, next) => {
+    $('.all-books').empty();
     Book.all.map(book => $('.all-books').append(book.toHtml()));
     next();
   }
@@ -67,8 +68,8 @@ var __API_URL__  = 'http://localhost:3000';
       })
   }
 
-  // add record
-  Book.addRecord = function(data) {
+  // ADD BOOK VIEW
+  Book.addBook = function(data) {
     $.ajax({
       url: `${__API_URL__}/api/v1/books`,
       method: 'POST',
