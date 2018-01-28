@@ -3,28 +3,27 @@
 (function(module) {
   var formView = {};
 
-  formView.init = (ctx, next) => {
+  formView.init = function() {
     $('.book-form').show();
     $('.single-book').hide();
     $('.error-view').hide();
     $('.all-books').hide();
+    $('#book-form').on('submit', formView.submitForm);
   }
 
-  $('#book-form').on('submit', function(e) {
+  formView.submitForm = e => {
     e.preventDefault();
 
-    let data = {
-      author: e.target.author.value,
-      title: e.target.title.value,
-      isbn: e.target.isbn.value,
-      image_url: e.target.image_url.value,
-      description: e.target.description.value,
-    }
-
-    window.Book.addBook(data);
-
-    this.reset();
-  })
+    let book = new window.Book({
+      author: $('#author').val(),
+      title: $('#title').val(),
+      isbn: $('#isbn').val(),
+      image_url: $('#image_url').val(),
+      description: $('#description').val(),
+    });
+    console.log(book)
+    book.addBook();
+  }
 
   module.formView = formView;
 })(window)
