@@ -1,6 +1,6 @@
 'use strict';
 
-// var __API_URL__  = 'http://localhost:3000';
+var __API_URL__  = 'http://localhost:3000';
 
 (function(module) {
   // var __API_URL__  = 'https://mg-book-app.herokuapp.com';
@@ -30,6 +30,7 @@
 
   Book.fetchAll = (ctx, next) => {
     $.ajax('https://mg-book-app.herokuapp.com/api/v1/books')
+    // $.ajax(`${__API_URL__}/api/v1/books`)
       .then(results => {
         ctx.results = results;
         next();
@@ -85,6 +86,24 @@
         description: this.description,
       },
       success: window.location = '/',
+    })
+  }
+
+  // DELETE BOOK
+  Book.deleteBook = (ctx) => {
+    $('.single-book').on('click', $('#delete-book'), function() {
+      console.log(ctx.params.id)
+      $.ajax({
+        url: `https://mg-book-app.herokuapp.com/api/v1/books/${ctx.params.id}`,
+        // url: `http://localhost:3000/api/v1/books/${ctx.params.id}`,
+        method: 'DELETE',
+        success: function() {
+          window.location = '/';
+        }
+      })
+        .catch(err => {
+          window.errorView.initErrorPage(err);
+        })
     })
   }
 
