@@ -85,7 +85,7 @@ var __API_URL__  = 'http://localhost:3000';
         image_url: this.image_url,
         description: this.description,
       },
-      success: window.location = '/',
+      success: window.location = '../',
     })
   }
 
@@ -98,7 +98,7 @@ var __API_URL__  = 'http://localhost:3000';
         // url: `http://localhost:3000/api/v1/books/${ctx.params.id}`,
         method: 'DELETE',
         success: function() {
-          window.location = '/';
+          window.location = '../';
         }
       })
         .catch(err => {
