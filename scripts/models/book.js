@@ -1,7 +1,7 @@
 'use strict';
 
-// var __API_URL__  = 'https://mg-book-app.herokuapp.com';
-var __API_URL__  = 'http://localhost:3000';
+var __API_URL__  = 'https://mg-book-app.herokuapp.com';
+// var __API_URL__  = 'http://localhost:3000';
 
 (function(module) {
   function Book(rawDataObj) { Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]); }
@@ -69,16 +69,16 @@ var __API_URL__  = 'http://localhost:3000';
   }
 
   // ADD BOOK VIEW
-  Book.addBook = function(data) {
+  Book.prototype.addBook = function(){
     $.ajax({
       url: `${__API_URL__}/api/v1/books`,
       method: 'POST',
       data: {
-        author: data.author,
-        title: data.title,
-        isbn: data.isbn,
-        image_url: data.image_url,
-        description: data.description,
+        author: this.author,
+        title: this.title,
+        isbn: this.isbn,
+        image_url: this.image_url,
+        description: this.description,
       },
       success: window.location = '/',
     })
