@@ -1,6 +1,7 @@
 # Book List
 
 **Author**: Melanie Cohen & Gene Pieterson
+
 **Version**: 1.1.0
 
 ## Overview
