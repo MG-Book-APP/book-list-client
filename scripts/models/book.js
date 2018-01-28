@@ -86,7 +86,7 @@ var __API_URL__  = 'http://localhost:3000';
         image_url: this.image_url,
         description: this.description,
       },
-      success: window.location = '/book-list-client',
+      success: window.location.assign('https://mg-book-app.github.io/book-list-client/'),
     })
   }
 
@@ -99,7 +99,7 @@ var __API_URL__  = 'http://localhost:3000';
         // url: `http://localhost:3000/api/v1/books/${ctx.params.id}`,
         method: 'DELETE',
         success: function() {
-          window.location = '/book-list-client';
+          window.location.assign('https://mg-book-app.github.io/book-list-client/');
         }
       })
         .catch(err => {
@@ -134,7 +134,10 @@ var __API_URL__  = 'http://localhost:3000';
           isbn: $('#updateisbn').val(),
           image_url: $('#updateimage_url').val(),
           description: $('#updatedescription').val()
-        }
+        },
+        success: function() {
+          window.location.assign('https://mg-book-app.github.io/book-list-client/');
+        }     
       })
     })
   }
