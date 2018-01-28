@@ -1,6 +1,6 @@
 'use strict';
 
-page('/book-app-client', function() { 
+page('/book-list-client', function() { 
   page.redirect('/');
 });
 page('/', window.Book.fetchAll, window.Book.loadAll, window.Book.renderAllBooks, window.bookView.init);
