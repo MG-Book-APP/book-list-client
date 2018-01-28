@@ -91,7 +91,7 @@ var __API_URL__  = 'http://localhost:3000';
 
   // DELETE BOOK
   Book.deleteBook = (ctx) => {
-    $('.single-book').on('click', $('#delete-book'), function() {
+    $('#delete-book').on('click', function() {
       console.log(ctx.params.id)
       $.ajax({
         url: `https://mg-book-app.herokuapp.com/api/v1/books/${ctx.params.id}`,
@@ -106,6 +106,8 @@ var __API_URL__  = 'http://localhost:3000';
         })
     })
   }
+
+  // UPDATE BOOK
 
   module.Book = Book;
 })(window)
