@@ -137,9 +137,13 @@ var __API_URL__  = 'http://localhost:3000';
         },
         success: function() {
           window.location.assign('https://mg-book-app.github.io/book-list-client/');
-        }     
+        }
       })
+        .catch(err => {
+          window.errorView.initErrorPage(err);
+        })
     })
+    next();
   }
 
   module.Book = Book;
