@@ -8,6 +8,8 @@
     $('.error-view').hide();
     $('.book-form').hide();
     $('.single-book').show();
+
+    next();
   }
 
   module.singleBook = singleBook;

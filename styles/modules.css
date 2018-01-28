@@ -11,3 +11,64 @@
 button {
     display: block;
 }
+
+/* ALL BOOK VIEW */
+div p {
+  text-align: center
+}
+div p:last-child {
+  padding-bottom: 2%;
+}  
+img {
+  display: block;
+  margin: 0 auto;
+  padding-top: 4%;
+  padding-bottom: 2%;
+}
+
+/* SINGLE BOOK VIEW */
+.single-book p:last-child {
+    text-align: left;
+    margin: 3% 3% 0 3%;
+}
+
+/* FORM VIEW */
+#book-form {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  height: 50vw;
+  border: 1px purple dashed;
+}
+  
+#author, #title, #isbn, #image_url {
+  margin-bottom: 1vw;
+  margin-top: 1vw;
+  height: 5vw;
+}
+  
+#description {
+  height: 15vw;
+}
+    
+.form-align {
+  width: 40vw;
+  display: block;
+  position: relative;
+  margin-left: 8vw;
+}
+
+button {
+  height: 50px;
+  margin: 2% auto;
+}
+  /* #align-submit {
+    float: right;
+    border-radius: 30vw;
+    font-family: Arial;
+    color: black;
+    font-size: 2vw;
+    padding: 2vw 4vw 2vw 4vw;
+    margin-right: 2vw;
+    margin-top: 2vw;
+  } */

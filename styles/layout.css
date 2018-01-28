@@ -1,48 +1,8 @@
-
-/* 
-.error-view {
-  display: none;
-} */
-
-#book-form {
-  display: inline-block;
-    /* float: center; */
-    width: 250vw;
-    text-align: center;
-    /* margin: auto; */
-    height: 50vw;
+h1 {
+  font-size: 1.75em;
+  padding: 1% 0 1% 2%;
 }
-
-#author, #title, #isbn, #image_url {
-  margin-bottom: 1vw;
-  margin-top: 1vw;
-  height: 5vw;
-}
-
-#description {
-  height: 15vw;
-}
-
-#results {
-  display: none;
-}
-
-.form-align {
-  width: 40vw;
+.tab {
   display: block;
-  position: relative;
-  margin-left: 8vw;
+  padding: 1% 0 0 2%;
 }
-.btn {
-  height: 50px;
-}
-/* #align-submit {
-  float: right;
-  border-radius: 30vw;
-  font-family: Arial;
-  color: black;
-  font-size: 2vw;
-  padding: 2vw 4vw 2vw 4vw;
-  margin-right: 2vw;
-  margin-top: 2vw;
-} */

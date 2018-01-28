@@ -1,10 +1,11 @@
 body {
   max-width: 60vw;
   margin: 0 auto;
+  font-family: Avenir;
 }
 header {
   background: #333;
-  height: 5vw;
+  height: 10vw;
   color: #fff;
 }
 main{
@@ -12,5 +13,13 @@ main{
 }
 footer {
   background: #888;
-  height: 30vw;
+  height: 10vw;
+}
+header a {
+  color: #FFF;
+  text-decoration: none;
+}
+main a {
+  color: #54218B;
+  text-decoration: none;
 }
