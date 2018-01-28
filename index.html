@@ -26,7 +26,7 @@
         <p>{{title}}</p>
         <p>{{author}}</p>
         <p>{{isbn}}</p>
-        <p>{{description}}</p>
+        <p id="bookdesc">{{description}}</p>
         <button id="delete-book">Delete</button>
         <a href="/books/{{id}}/edit"><button id="update-book">Update</button></a>
       </div>
@@ -34,20 +34,20 @@
   </head>
   <body>
     <header>
-      <section>
+        <img src="images/cflogo.png">
         <h1>books app</h1>
-        <nav id="icon-menu" >
-          <span class="tab"><a href="/">View All Books</a></span>
-          <span class="tab"><a href="/books/add">Add A New Book</a></span>
-        </nav>
-      </section>
+        <p class="menu"></p>
     </header>
     <main>
+      <section class="menu-items">
+          <a href="/">View All Books</a>
+          <a href="/books/add">Add A New Book</a>
+      </section>
       <section class="all-books"></section>
       <section class="single-book"></section>
       <section class="error-view"></section>
       <section class="edit-view">
-        <form id="edit-form">
+        <form id="edit-form" class="form">
           <input type="text" class="form-align" id="updateauthor" placeholder="Book Author">
           <input type="text" class="form-align" id="updatetitle" placeholder="Book Title">
           <input type="text" class="form-align" id="updateisbn" placeholder="ISBN">
@@ -57,7 +57,7 @@
         </form>
       </section>
       <section class="book-form">
-        <form id="book-form">
+        <form id="book-form" class="form">
           <input type="text" class="form-align" id="author" placeholder="Book Author">
           <input type="text" class="form-align" id="title" placeholder="Book Title">
           <input type="text" class="form-align" id="isbn" placeholder="ISBN">

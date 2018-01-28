@@ -7,6 +7,7 @@
     $('.all-books').hide();
     $('.single-book').hide();
     $('.book-form').hide();
+    $('.edit-view').hide();
     $('.error-view').show();
 
     var message = { err : `${err.status} ${err.statusText}`}
