@@ -28,6 +28,7 @@
         <p>{{isbn}}</p>
         <p>{{description}}</p>
         <button id="delete-book">Delete</button>
+        <button id="update-book"><a href="/books/{{id}}/edit">Update</a></button>
       </div>
     </script>  
   </head>
@@ -45,6 +46,16 @@
       <section class="all-books"></section>
       <section class="single-book"></section>
       <section class="error-view"></section>
+      <section class="edit-view">
+        <form id="edit-form">
+          <input type="text" class="form-align" id="updateauthor" placeholder="Book Author">
+          <input type="text" class="form-align" id="updatetitle" placeholder="Book Title">
+          <input type="text" class="form-align" id="updateisbn" placeholder="ISBN">
+          <input type="text" class="form-align" id="updateimage_url" placeholder="Image URL">
+          <textarea name="textarea" id="updatedescription" class="form-align" placeholder="Description" rows="30" cols="20"></textarea>
+          <button id="align-submit" type="submit">Update Book</button>
+        </form>
+      </section>
       <section class="book-form">
         <form id="book-form">
           <input type="text" class="form-align" id="author" placeholder="Book Author">
@@ -53,7 +64,6 @@
           <input type="text" class="form-align" id="image_url" placeholder="Image URL">
           <textarea name="textarea" id="description" class="form-align" placeholder="Description" rows="30" cols="20"></textarea>
           <button id="align-submit" type="submit">Add Book</button>
-          <!-- <button id="align-submit" type="submit">Update</button> -->
         </form>
       </section>
     </main>
@@ -66,7 +76,7 @@
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/add-book.js"></script>
     <script src="scripts/views/one-book.js"></script>
+    <script src="scripts/views/edit-book.js"></script>
     <script src="scripts/controllers/routes.js"></script>
-
   </body>
 </html>

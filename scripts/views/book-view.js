@@ -6,6 +6,7 @@
   bookView.init = (ctx, next) => {
     $('.book-form').hide();
     $('.single-book').hide();
+    $('.edit-view').hide();
     $('.error-view').hide();
     $('.all-books').show();
 
