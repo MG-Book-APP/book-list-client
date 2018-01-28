@@ -54,6 +54,7 @@ var __API_URL__  = 'http://localhost:3000';
   }
 
   Book.loadSingle = (ctx, next) => {
+    console.log('Load single book:',ctx.results)
     Book.single = [];
     Book.single = ctx.results.map(book => new Book(book));
     next();
@@ -64,7 +65,7 @@ var __API_URL__  = 'http://localhost:3000';
     $.get(`https://mg-book-app.herokuapp.com/api/v1/books/${ctx.params.id}`)
       .then(results => {
         ctx.results = results.rows;
-        console.log('Single book:',ctx.results);
+        console.log('Fetch single book:',ctx.results);
         next();
       })
       .catch(err => {
@@ -108,12 +109,25 @@ var __API_URL__  = 'http://localhost:3000';
   }
 
   // UPDATE BOOK
+  Book.renderEditSingleBook = (ctx, next) => {
+    console.log('Render edit single book', ctx.results[0]);
+    $('#updatetitle').val(ctx.results[0].title);
+    $('#updateauthor').val(ctx.results[0].author);
+    $('#updateimage_url').val(ctx.results[0].image_url);
+    $('#updateisbn').val(ctx.results[0].isbn);
+    $('#updatedescription').val(ctx.results[0].description);
+
+    next();
+  }
+
   Book.updateBook = (ctx, next) => {
     $('#edit-form').on('submit', function(e) {
       e.preventDefault();
+      console.log('Update book',ctx);
       $.ajax({
         url: `https://mg-book-app.herokuapp.com/api/v1/books/${ctx.params.id}/edit`,
         method: 'PUT',
+        headers: {"X-HTTP-Method-Override": "PUT"},
         data: {
           title: $('#updatetitle').val(),
           author: $('#updateauthor').val(),
