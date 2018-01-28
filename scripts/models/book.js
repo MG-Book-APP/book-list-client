@@ -1,8 +1,7 @@
 'use strict';
 
-var __API_URL__  = 'http://localhost:3000';
-
 (function(module) {
+  // NOTE: Did not use the API URL variable declared here due to troubleshooting. I know this is hacky and not as secure.
   // var __API_URL__  = 'https://mg-book-app.herokuapp.com';
 
   function Book(rawDataObj) { Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]); }
@@ -30,7 +29,6 @@ var __API_URL__  = 'http://localhost:3000';
 
   Book.fetchAll = (ctx, next) => {
     $.ajax('https://mg-book-app.herokuapp.com/api/v1/books')
-    // $.ajax(`${__API_URL__}/api/v1/books`)
       .then(results => {
         ctx.results = results;
         next();
@@ -61,7 +59,6 @@ var __API_URL__  = 'http://localhost:3000';
   }
 
   Book.fetchSingle = (ctx, next) => {
-    // $.get(`${__API_URL__}/api/v1/books/${ctx.params.id}`)
     $.get(`https://mg-book-app.herokuapp.com/api/v1/books/${ctx.params.id}`)
       .then(results => {
         ctx.results = results.rows;
@@ -76,7 +73,6 @@ var __API_URL__  = 'http://localhost:3000';
   // ADD BOOK VIEW
   Book.prototype.addBook = function(){
     $.ajax({
-      // url: `${__API_URL__}/api/v1/books`,
       url: 'https://mg-book-app.herokuapp.com/api/v1/books',
       method: 'POST',
       data: {
@@ -87,6 +83,7 @@ var __API_URL__  = 'http://localhost:3000';
         description: this.description,
       },
       success: window.location.assign('https://mg-book-app.github.io/book-list-client/'),
+      // Another hacky solution. Had a lot of trouble with github.io's structure.
     })
   }
 
@@ -96,7 +93,6 @@ var __API_URL__  = 'http://localhost:3000';
       console.log(ctx.params.id)
       $.ajax({
         url: `https://mg-book-app.herokuapp.com/api/v1/books/${ctx.params.id}`,
-        // url: `http://localhost:3000/api/v1/books/${ctx.params.id}`,
         method: 'DELETE',
         success: function() {
           window.location.assign('https://mg-book-app.github.io/book-list-client/');
@@ -108,7 +104,7 @@ var __API_URL__  = 'http://localhost:3000';
     })
   }
 
-  // UPDATE BOOK
+  // UPDATE BOOK - Not working
   Book.renderEditSingleBook = (ctx, next) => {
     console.log('Render edit single book', ctx.results[0]);
     $('#updatetitle').val(ctx.results[0].title);
