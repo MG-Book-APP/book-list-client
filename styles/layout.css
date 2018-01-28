@@ -1,8 +1,28 @@
-h1 {
-  font-size: 1.75em;
-  padding: 1% 0 1% 2%;
+header img {
+  float: left;
+  width: 10%;
+  margin: 0 0 3% 2%;
 }
-.tab {
+h1 {
+  font-size: 4vw;
+  margin-top: 4%;
+  margin-left: 10%;
+  padding: 1% 0 1% 3%;
+}
+header {
+  border: 1px #333 solid;
+  margin-bottom: 0;
+}
+.menu-items {
   display: block;
-  padding: 1% 0 0 2%;
+  width: 100%;
+  float: left;
+}
+.menu-items a {
+  display: block;
+  margin-left: 3%;
+  font-size: 2.3vw;
+}
+.menu-items a:last-child {
+  margin-top: 3px;
 }

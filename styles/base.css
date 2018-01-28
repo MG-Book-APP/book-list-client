@@ -14,10 +14,7 @@ main{
 footer {
   background: #888;
   height: 10vw;
-}
-header a {
-  color: #FFF;
-  text-decoration: none;
+  clear: both;
 }
 main a {
   color: #54218B;
