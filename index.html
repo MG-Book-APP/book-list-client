@@ -22,7 +22,7 @@
     </script>
     <script id="single-book-template" type="text/x-handlebars-template">
       <div data-author="{{author}}">
-        <!-- <img src="{{image_url}}"> -->
+        <img src="{{image_url}}">
         <p>{{title}}</p>
         <p>{{author}}</p>
         <p>{{isbn}}</p>
@@ -34,7 +34,7 @@
     <header>
       <section>
         <nav id="icon-menu" >
-          <span class="tab">View All Books</span>
+          <span class="tab"><a href="/">View All Books</a></span>
           <span class="tab"><a href="/books/add">Add A New Book</a></span>
         </nav>
         <p>books app</p>
@@ -66,5 +66,6 @@
     <script src="scripts/views/one-book.js"></script>
     <script src="scripts/views/add-book.js"></script>
     <script src="scripts/controllers/routes.js"></script>
+
   </body>
 </html>

@@ -12,5 +12,13 @@ main{
 }
 footer {
   background: #888;
-  height: 30vw;
+  height: 10vw;
+}
+header a {
+  color: #FFF;
+  text-decoration: none;
+}
+main a {
+  color: #54218B;
+  text-decoration: none;
 }

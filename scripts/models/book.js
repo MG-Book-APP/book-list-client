@@ -47,7 +47,8 @@
 
   Book.renderSingleBook = (ctx, next) => {
     $('.all-books').hide();
-    Book.single.map(book => $('.single-book').append(book.toHtml()));
+    $('.single-book').empty();
+    Book.single.map(book => $('.single-book').append(book.singleToHtml()));
     next();
   }
 
