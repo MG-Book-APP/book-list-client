@@ -12,11 +12,7 @@
 
     next();
   }
-
-  $('#update-book').on('click', function() {
-    $('.edit-view').show()
-  })
-
+  
   module.singleBook = singleBook;
 
 })(window);

@@ -108,6 +108,22 @@ var __API_URL__  = 'http://localhost:3000';
   }
 
   // UPDATE BOOK
+  Book.updateBook = (ctx, next) => {
+    $('#edit-form').on('submit', function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: `https://mg-book-app.herokuapp.com/api/v1/books/${ctx.params.id}/edit`,
+        method: 'PUT',
+        data: {
+          title: $('#updatetitle').val(),
+          author: $('#updateauthor').val(),
+          isbn: $('#updateisbn').val(),
+          image_url: $('#updateimage_url').val(),
+          description: $('#updatedescription').val()
+        }
+      })
+    })
+  }
 
   module.Book = Book;
 })(window)
